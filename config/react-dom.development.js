@@ -15342,6 +15342,7 @@ function updateReducer(reducer, initialArg, init) {
   }
 
   var dispatch = queue.dispatch;
+  window.homeworkHook('updateReducer', hook, currentlyRenderingFiber);
   return [hook.memoizedState, dispatch];
 }
 
@@ -15635,6 +15636,7 @@ function mountState(initialState) {
     lastRenderedState: initialState
   };
   var dispatch = queue.dispatch = dispatchAction.bind(null, currentlyRenderingFiber$1, queue);
+  window.homeworkHook('mountState', hook, currentlyRenderingFiber);
   return [hook.memoizedState, dispatch];
 }
 
@@ -16069,7 +16071,7 @@ function dispatchAction(fiber, queue, action) {
     eagerState: null,
     next: null
   }; // Append the update to the end of the list.
-
+  
   var pending = queue.pending;
 
   if (pending === null) {
@@ -16082,7 +16084,7 @@ function dispatchAction(fiber, queue, action) {
 
   queue.pending = update;
   var alternate = fiber.alternate;
-
+  window.homeworkHook('dispatchAction', fiber);
   if (fiber === currentlyRenderingFiber$1 || alternate !== null && alternate === currentlyRenderingFiber$1) {
     // This is a render phase update. Stash it in a lazily-created map of
     // queue -> linked list of updates. After this render pass, we'll restart
@@ -22706,6 +22708,7 @@ function renderRootSync(root, lanes) {
 
 function workLoopSync() {
   // Already timed out, so perform work without checking if we need to yield.
+  window.homeworkHook('workLoopSync');
   while (workInProgress !== null) {
     performUnitOfWork(workInProgress);
   }

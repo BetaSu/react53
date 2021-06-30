@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './demo/App'
-import '../homeworkHook';
+import '../helper/homeworkHook';
+
 
 ReactDOM.render(
   <App />,
