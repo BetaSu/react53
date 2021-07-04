@@ -1,5 +1,5 @@
 import React from 'react';
-import reconciler from './homework/reconciler';
+import reconciler from '.';
 
 
 

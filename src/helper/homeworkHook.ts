@@ -57,7 +57,7 @@ bindHook(2, 'beginWork', (_, wip) => {
   log('green', '递的组件', getType2Use(wip));
 
   const update = wip.memoizedState?.queue?.pending;
-  exist(update) && log('#04048a', '发现Update：', update);
+  exist(update) && log('#04048a', `在${getType2Use(wip)}中发现Update：`, update);
 
   const pendingProps = wip.pendingProps;
   exist(pendingProps) && Object.keys(pendingProps).length && log('brown', 'props', pendingProps);
