@@ -31,3 +31,7 @@ export const log = (color: string, label: string, message?: any) => {
 }
 
 export const exist = (data: any) => data !== undefined && data !== null;
+
+export const getReadableAnswer = (count: number, answer: number) => {
+  return `第${count + 1}题，答案：${answer}`;
+}

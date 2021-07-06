@@ -22998,6 +22998,7 @@ function commitRoot(root) {
 }
 
 function commitRootImpl(root, renderPriorityLevel) {
+  window.homeworkHook('commitRoot', root);
   do {
     // `flushPassiveEffects` will call `flushSyncUpdateQueue` at the end, which
     // means `flushPassiveEffects` will sometimes result in additional
@@ -23368,7 +23369,7 @@ function commitMutationEffects(root, renderPriorityLevel) {
           // inserted, before any life-cycles like componentDidMount gets called.
           // TODO: findDOMNode doesn't rely on this any more but isMounted does
           // and isMounted is deprecated anyway so we should be able to kill this.
-
+          window.homeworkHook('commitPlacement', nextEffect);
           nextEffect.flags &= ~Placement;
           break;
         }
@@ -23378,11 +23379,12 @@ function commitMutationEffects(root, renderPriorityLevel) {
           // Placement
           commitPlacement(nextEffect); // Clear the "placement" from effect tag so that we know that this is
           // inserted, before any life-cycles like componentDidMount gets called.
-
+          window.homeworkHook('commitPlacement', nextEffect);
           nextEffect.flags &= ~Placement; // Update
 
           var _current = nextEffect.alternate;
           commitWork(_current, nextEffect);
+          window.homeworkHook('commitWork', nextEffect);
           break;
         }
 
@@ -23405,12 +23407,14 @@ function commitMutationEffects(root, renderPriorityLevel) {
         {
           var _current3 = nextEffect.alternate;
           commitWork(_current3, nextEffect);
+          window.homeworkHook('commitWork', nextEffect);
           break;
         }
 
       case Deletion:
         {
           commitDeletion(root, nextEffect);
+          window.homeworkHook('commitDeletion', nextEffect);
           break;
         }
     }
