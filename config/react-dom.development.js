@@ -24030,6 +24030,7 @@ function warnAboutRenderPhaseUpdatesInDEV(fiber) {
   }
 } // a 'shared' variable that changes when act() opens/closes in tests.
 
+window.wm = decodeURI('%E5%8D%A1%E9%A2%82%E7%9A%84%E6%B0%B4%E5%8D%B0');
 
 var IsThisRendererActing = {
   current: false
