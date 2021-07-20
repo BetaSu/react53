@@ -14982,7 +14982,7 @@ function renderWithHooks(current, workInProgress, Component, props, secondArg, n
       ReactCurrentDispatcher$1.current = HooksDispatcherOnMountInDEV;
     }
   }
-
+  window.homeworkHook('renderWithHooks', workInProgress);
   var children = Component(props, secondArg); // Check if there was a render phase update
 
   if (didScheduleRenderPhaseUpdateDuringThisPass) {
@@ -15214,6 +15214,7 @@ function mountReducer(reducer, initialArg, init) {
     lastRenderedState: initialState
   };
   var dispatch = queue.dispatch = dispatchAction.bind(null, currentlyRenderingFiber$1, queue);
+  window.homeworkHook('mountReducer', hook);
   return [hook.memoizedState, dispatch];
 }
 
@@ -15340,9 +15341,8 @@ function updateReducer(reducer, initialArg, init) {
     hook.baseQueue = newBaseQueueLast;
     queue.lastRenderedState = newState;
   }
-
   var dispatch = queue.dispatch;
-  window.homeworkHook('updateReducer', hook, currentlyRenderingFiber);
+  window.homeworkHook(reducer === basicStateReducer ? 'updateState' : 'updateReducer', hook, currentlyRenderingFiber);
   return [hook.memoizedState, dispatch];
 }
 
@@ -15690,11 +15690,13 @@ function mountRef(initialValue) {
   }
 
   hook.memoizedState = ref;
+  window.homeworkHook('mountRef', hook);
   return ref;
 }
 
 function updateRef(initialValue) {
   var hook = updateWorkInProgressHook();
+  window.homeworkHook('updateRef', hook);
   return hook.memoizedState;
 }
 
@@ -15703,6 +15705,7 @@ function mountEffectImpl(fiberFlags, hookFlags, create, deps) {
   var nextDeps = deps === undefined ? null : deps;
   currentlyRenderingFiber$1.flags |= fiberFlags;
   hook.memoizedState = pushEffect(HasEffect | hookFlags, create, undefined, nextDeps);
+  window.homeworkHook('mountEffect', hook);
 }
 
 function updateEffectImpl(fiberFlags, hookFlags, create, deps) {
@@ -15726,6 +15729,7 @@ function updateEffectImpl(fiberFlags, hookFlags, create, deps) {
 
   currentlyRenderingFiber$1.flags |= fiberFlags;
   hook.memoizedState = pushEffect(HasEffect | hookFlags, create, destroy, nextDeps);
+  window.homeworkHook('updateEffect', hook);
 }
 
 function mountEffect(create, deps) {
@@ -15821,6 +15825,7 @@ function mountCallback(callback, deps) {
   var hook = mountWorkInProgressHook();
   var nextDeps = deps === undefined ? null : deps;
   hook.memoizedState = [callback, nextDeps];
+  window.homeworkHook('mountCallback', hook);
   return callback;
 }
 
@@ -15840,6 +15845,7 @@ function updateCallback(callback, deps) {
   }
 
   hook.memoizedState = [callback, nextDeps];
+  window.homeworkHook('updateCallback', hook);
   return callback;
 }
 
@@ -15848,6 +15854,7 @@ function mountMemo(nextCreate, deps) {
   var nextDeps = deps === undefined ? null : deps;
   var nextValue = nextCreate();
   hook.memoizedState = [nextValue, nextDeps];
+  window.homeworkHook('mountMemo', hook);
   return nextValue;
 }
 
@@ -15869,6 +15876,7 @@ function updateMemo(nextCreate, deps) {
 
   var nextValue = nextCreate();
   hook.memoizedState = [nextValue, nextDeps];
+  window.homeworkHook('updateMemo', hook);
   return nextValue;
 }
 

@@ -88,4 +88,45 @@ bindHook(3, 'completeWork', (_, wip) => {
   // exist(memoizedProps) && log('#850505', 'props', memoizedProps);
 })
 
+bindHook(4, 'renderWithHooks', (wip) => {
+  const cpn = getType2Use(wip);
+  log('red', `${cpn}开始render`);
+})
+bindHook(4, 'mountState', (hook) => {
+  log('green', `执行useState，数据为：`, hook);
+})
+bindHook(4, 'updateState', (hook) => {
+  log('green', `执行useState，数据为：`, hook);
+})
+bindHook(4, 'updateReducer', (hook) => {
+  log('green', `执行useReducer，数据为：`, hook);
+})
+bindHook(4, 'mountReducer', (hook) => {
+  log('green', `执行useReducer，数据为：`, hook);
+})
+bindHook(4, 'mountEffect', (hook) => {
+  log('green', `执行useEffect，数据为：`, hook);
+})
+bindHook(4, 'updateEffect', (hook) => {
+  log('green', `执行useEffect，数据为：`, hook);
+})
+bindHook(4, 'mountRef', (hook) => {
+  log('green', `执行useRef，数据为：`, hook);
+})
+bindHook(4, 'updateRef', (hook) => {
+  log('green', `执行useRef，数据为：`, hook);
+})
+bindHook(4, 'mountCallback', (hook) => {
+  log('green', `执行useCallback，数据为：`, hook);
+})
+bindHook(4, 'updateCallback', (hook) => {
+  log('green', `执行useCallback，数据为：`, hook);
+})
+bindHook(4, 'mountMemo', (hook) => {
+  log('green', `执行useMemo，数据为：`, hook);
+})
+bindHook(4, 'updateMemo', (hook) => {
+  log('green', `执行useMemo，数据为：`, hook);
+})
+
 export {};

@@ -14,7 +14,7 @@ function App() {
     <div>
       <p>提莫队长正在送命</p>
       <button onClick={del}>点我种蘑菇</button>
-      <button onClick={add}>点我踩蘑菇</button>
+      <button onClick={add}>点我采蘑菇</button>
       <ul>
         {Array(count).fill('🍄').map((what, i) => <li key={i}>{what}</li>)}
       </ul>
