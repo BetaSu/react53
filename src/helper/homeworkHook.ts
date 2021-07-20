@@ -21,7 +21,7 @@ window.homeworkHook = function(type, ...args) {
   checkHack();
   const lessionMap = type2Hook[window.lession];
   const cb = lessionMap ? lessionMap[type] : undefined;
-  cb && cb(...args);
+  cb?.(...args);
 }
 
 bindHook(1, 'workLoopSync', () => {

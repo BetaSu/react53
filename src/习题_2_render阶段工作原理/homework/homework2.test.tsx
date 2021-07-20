@@ -1,5 +1,5 @@
 import React from 'react';
-import {reconciler, choiceList} from './';
+import {reconciler, choiceList} from '.';
 import {getReadableAnswer} from '../../helper/utils';
 
 test('习题二批改作业', () => {

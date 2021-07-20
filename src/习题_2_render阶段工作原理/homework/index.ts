@@ -14,19 +14,19 @@ export const choiceList = [
     return 1; /** return你的答案 */
   },
   () => {
-    // 问题：render阶段的遍历顺序是？
+    // 问题：render阶段的遍历顺序是？ 
     // 1. 广度优先遍历
     // 2. 深度优先遍历
     return /** 你的答案 */; 
   },
   () => {
     // 问题：render阶段mount时
-    // 1. 通过
+    // 1.  通过
     // 2. 通过定时器定时触发
     return /** 你的答案 */; 
   },
   
-] as TChoice[];
+] as TChoice[]   ;
 
 
 /**

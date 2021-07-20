@@ -7,6 +7,7 @@ function App() {
       update(count - 1);
     }
   };
+
   const del = () => update(count + 1);
 
   return (
