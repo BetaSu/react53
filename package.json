@@ -1,5 +1,9 @@
 {
   "version": "0.0.0",
+  "name": "react53",
+  "bin": {
+    "react53": "bin/cli.js"
+  },
   "scripts": {
     "start": "node ./config/runDemo.js",
     "test": "node ./config/runTest.js"

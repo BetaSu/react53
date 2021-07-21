@@ -3,7 +3,6 @@ const fs = require('fs');
 const util = require('util');
 const rimraf = util.promisify(require('rimraf'));
 const inquirer = require('inquirer');
-const readFile = util.promisify(fs.readFile);
 
 const constant = require('./constant');
 
