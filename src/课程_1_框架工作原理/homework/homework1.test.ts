@@ -2,7 +2,7 @@ import homework from '.';
 import {getReadableAnswer} from '../../helper/utils';
 
 
-test('习题一批改作业', () => {
+test('课程一批改作业', () => {
   const answer = [1, 1, 1, 1, 1, 2].map((rightAnswer, i) => getReadableAnswer(i, rightAnswer));
   homework.forEach((cur, i) => {
     const curAnswer = getReadableAnswer(i, cur());

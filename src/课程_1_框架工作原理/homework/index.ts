@@ -6,7 +6,7 @@ import {TChoice} from '../../helper/types';
 */
 
 export default [
-  // 这是个习题使用例子
+  // 这是个选择题使用例子
   () => {
     // 问题：卡颂帅么？
     // 1. 帅

@@ -1,8 +1,6 @@
 const chalk = require('chalk');
-
 const path = require('path');
 const fs = require('fs');
-
 const constant = require('./constant');
 
 function parseLessionList() {
@@ -15,12 +13,12 @@ function parseLessionList() {
 function checkLessionArg(num) {
   const lessionList = parseLessionList();
   if (!num) {
-    console.log(chalk.red('请传入习题序号，如：npm test 2 代表运行作业2的测试用例'), `所有习题序号包括：`, chalk.green(lessionList));
+    console.log(chalk.red('请传入课程序号，如：npm test 2 代表运行作业2的测试用例'), `所有课程序号包括：`, chalk.green(lessionList));
     return false;
   }
   
   if (!lessionList.includes(num)) {
-    console.log(chalk.red(`没有序号为${num}的习题`), `所有习题序号包括：`, chalk.green(lessionList));
+    console.log(chalk.red(`没有序号为${num}的课程`), `所有课程序号包括：`, chalk.green(lessionList));
     return false;
   }
   return true;

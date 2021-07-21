@@ -6,7 +6,7 @@ import {TChoice} from '../../helper/types';
 */
 
 export const choiceList = [
-  // 这是个习题使用例子
+  // 这是个选择题使用例子
   () => {
     // 问题：卡颂的公众号是？
     // 1. 魔术师卡颂

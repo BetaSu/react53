@@ -20,7 +20,7 @@ const type2Hook: {[lession: string]: {[lessionType: string]: THomeworkCB}} = {};
 window.homeworkHook = function(type, ...args) {
   checkHack();
   const lessionMap = type2Hook[window.lession];
-  const cb = lessionMap ? lessionMap[type] : undefined;
+  const cb = lessionMap?.[type];
   cb?.(...args);
 }
 
@@ -90,7 +90,7 @@ bindHook(3, 'completeWork', (_, wip) => {
 
 bindHook(4, 'renderWithHooks', (wip) => {
   const cpn = getType2Use(wip);
-  log('red', `${cpn}开始render`);
+  log('red', `${cpn}开始render`, wip);
 })
 bindHook(4, 'mountState', (hook) => {
   log('green', `执行useState，数据为：`, hook);
@@ -106,13 +106,13 @@ bindHook(4, 'mountReducer', (hook) => {
 })
 bindHook(4, 'mountEffect', (hook) => {
   log('green', `执行useEffect，数据为：`, hook);
-})
+})    
 bindHook(4, 'updateEffect', (hook) => {
   log('green', `执行useEffect，数据为：`, hook);
 })
 bindHook(4, 'mountRef', (hook) => {
   log('green', `执行useRef，数据为：`, hook);
-})
+}) 
 bindHook(4, 'updateRef', (hook) => {
   log('green', `执行useRef，数据为：`, hook);
 })

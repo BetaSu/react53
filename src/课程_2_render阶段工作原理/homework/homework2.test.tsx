@@ -2,7 +2,7 @@ import React from 'react';
 import {reconciler, choiceList} from '.';
 import {getReadableAnswer} from '../../helper/utils';
 
-test('习题二批改作业', () => {
+test('课程二批改作业', () => {
   const answer = [1, 1, 1, 1, 1, 2].map((rightAnswer, i) => getReadableAnswer(i, rightAnswer));
   choiceList.forEach((cur, i) => {
     const curAnswer = getReadableAnswer(i, cur());
