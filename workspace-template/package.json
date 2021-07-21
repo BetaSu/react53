@@ -4,7 +4,6 @@
   "bin": {
     "react53": "bin/cli.js"
   },
-  "workspaces": ["workspace-template", "workspace-cli"],
   "scripts": {
     "start": "node ./config/runDemo.js",
     "test": "node ./config/runTest.js"
