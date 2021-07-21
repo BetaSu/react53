@@ -17007,6 +17007,7 @@ function reconcileChildren(current, workInProgress, nextChildren, renderLanes) {
     // let's throw it out.
     workInProgress.child = reconcileChildFibers(workInProgress, current.child, nextChildren, renderLanes);
   }
+  window.homeworkHook('reconcileChildren', workInProgress.child)
 }
 
 function forceUnmountCurrentAndReconcile(current, workInProgress, nextChildren, renderLanes) {

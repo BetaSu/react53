@@ -43,11 +43,15 @@ bindHook(1, 'commitDeletion', (fiber) => {
 bindHook(2, 'workLoopSync', () => {
   log('#727205', '开始深度优先遍历（render阶段开始）');
 })
-bindHook(2, 'beginWork', (_, wip) => {
-  log('green', '递的组件', getType2Use(wip));
-})
-bindHook(2, 'completeWork', (_, wip) => {
-  log('red', '归的组件', getType2Use(wip));
+// bindHook(2, 'beginWork', (_, wip) => {
+//   log('green', '递的组件', getType2Use(wip));
+// })
+// bindHook(2, 'completeWork', (_, wip) => {
+//   log('red', '归的组件', getType2Use(wip));
+// })
+bindHook(2, 'reconcileChildren', (child) => {
+  console.log(child);
+  child && log('green', '生成fiber节点：', child);
 })
 
 bindHook(3, 'workLoopSync', () => {
