@@ -1,0 +1,27 @@
+{
+  "name": "react53",
+  "version": "1.0.0",
+  "description": "React53 CLI",
+  "main": "index.js",
+  "bin": {
+    "react53": "./bin/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BetaSu/react53.git"
+  },
+  "author": "KaSong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BetaSu/react53/issues"
+  },
+  "homepage": "https://github.com/BetaSu/react53#readme",
+  "devDependencies": {
+    "chalk": "^4.1.1",
+    "inquirer": "^8.1.1",
+    "ora": "^5.4.1"
+  }
+}

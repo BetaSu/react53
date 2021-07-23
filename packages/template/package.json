@@ -1,13 +1,20 @@
 {
   "version": "0.0.0",
-  "name": "react53",
-  "bin": {
-    "react53": "bin/cli.js"
-  },
+  "name": "react53-template",
   "scripts": {
     "start": "node ./config/runDemo.js",
     "test": "node ./config/runTest.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BetaSu/react53.git"
+  },
+  "author": "KaSong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BetaSu/react53/issues"
+  },
+  "homepage": "https://github.com/BetaSu/react53#readme",
   "dependencies": {
     "react": "^17.0.0",
     "react-dom": "17.0.2"
