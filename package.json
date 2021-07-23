@@ -1,10 +1,10 @@
 {
   "version": "0.0.0",
-  "name": "react53-repo",
-  "workspaces": [
-    "packages/cli",
-    "packages/template"
-  ],
+  "name": "react53-template",
+  "scripts": {
+    "start": "node ./config/runDemo.js",
+    "test": "node ./config/runTest.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BetaSu/react53.git"
@@ -16,6 +16,24 @@
   },
   "homepage": "https://github.com/BetaSu/react53#readme",
   "dependencies": {
-    "react53-template": "file:packages/template"
+    "react": "^17.0.0",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "17.0.2",
+    "@vitejs/plugin-react-refresh": "^1.3.1",
+    "arg": "^5.0.0",
+    "babel-jest": "27.0.6",
+    "chalk": "^4.1.1",
+    "fast-glob": "^3.2.6",
+    "inquirer": "^8.1.1",
+    "jest": "27.0.6",
+    "jest-cli": "27.0.6",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.3",
+    "typescript": "^4.3.2",
+    "vite": "2.3.8"
   }
 }

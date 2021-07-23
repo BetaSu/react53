@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import reactRefresh from '@vitejs/plugin-react-refresh'
-import showLessionTitlePlugin from './config/showLessionUrlPlugin';
 import constant from './config/constant';
 
 const curLession = process.env[constant.LESSION_ENV];
@@ -11,5 +10,5 @@ if (!curLession) {
 // https://vitejs.dev/config/
 export default defineConfig({
   root: `./src/${curLession}`,
-  plugins: [reactRefresh(), showLessionTitlePlugin()]
+  plugins: [reactRefresh()]
 })
