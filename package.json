@@ -1,7 +1,7 @@
 {
   "name": "react53",
-  "version": "0.0.1",
-  "description": "React53 CLI",
+  "version": "0.0.5",
+  "description": "交互式React进阶手册",
   "main": "index.js",
   "bin": {
     "react53": "./bin/cli.js"
