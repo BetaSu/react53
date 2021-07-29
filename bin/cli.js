@@ -7,7 +7,18 @@ const chalk = require('chalk');
 const ora = require('ora');
 const {exec} = require('child_process');
 const {name} = require(path.resolve(__dirname, '../package.json'));
-const {name: templateName} = require('react53-template/package.json');
+
+function execDefer(command) {
+  return new Promise(function(resolve, reject) {
+    exec(command, (error, stdout, stderr) => {
+      if (error) {
+        return reject(error);
+      }
+
+      resolve(stdout.trim());
+    });
+  });
+}
 
 console.log(chalk.yellow(`欢迎使用${name} —— 交互式React进阶手册`));
 inquirer.prompt([
@@ -31,20 +42,23 @@ inquirer.prompt([
       value: 'http://registry.npm.taobao.org'
     }]
   },
-]).then(({dir, mirror}) => {
-  try {
-    fs.mkdirSync(dir);
-  } catch(e) {
-    console.log('ww', e);
-  }
+]).then(async ({dir, mirror}) => {
+  // try {
+  //   fs.mkdirSync(dir);
+  // } catch(e) {
+  //   console.log('ww', e);
+  // }
 
   const spinner = ora('正在初始化项目');
-
   spinner.start();
 
-  exec(`npm i ${templateName} ${mirror ? `--registry=${mirror}` : ''}`, (err, data) => {
-    if (err) {
-      console.log(chalk.red('模板下载失败 ', err.message));
-    }
-  })
+  try {
+    await execDefer(`git clone git@github.com:BetaSu/react53.git ${dir}`);
+    spinner.text = '正在安装依赖';
+    await execDefer(`cd ${dir} && npm install ${mirror ? `--registry=${mirror}` : ''}`);
+    spinner.succeed('初始化项目完成');
+  } catch(e) {
+    spinner.fail('初始化项目失败');
+    console.log(chalk.red(e));
+  }
 })
