@@ -1,6 +1,5 @@
 #!/usr/bin/env node 
 const path = require('path');
-const fs = require('fs');
 
 const inquirer = require('inquirer');
 const chalk = require('chalk');
@@ -43,12 +42,6 @@ inquirer.prompt([
     }]
   },
 ]).then(async ({dir, mirror}) => {
-  // try {
-  //   fs.mkdirSync(dir);
-  // } catch(e) {
-  //   console.log('ww', e);
-  // }
-
   const spinner = ora('正在初始化项目');
   spinner.start();
 
