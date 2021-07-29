@@ -31,13 +31,13 @@ bindHook(1, 'commitRoot', () => {
   log('#04048a', '开始commit阶段，执行副作用');
 })
 bindHook(1, 'commitPlacement', (fiber) => {
-  log('brown', `副作用：${getType2Use(fiber)}插入`, fiber);
+  log('brown', `执行副作用：${getType2Use(fiber)}插入`, fiber);
 })
 bindHook(1, 'commitWork', (fiber) => {
-  log('brown', `副作用：${getType2Use(fiber)}更新属性`, fiber);
+  log('brown', `执行副作用：${getType2Use(fiber)}更新属性`, fiber);
 })
 bindHook(1, 'commitDeletion', (fiber) => {
-  log('brown', `副作用：${getType2Use(fiber)}删除DOM`, fiber);
+  log('brown', `执行副作用：${getType2Use(fiber)}删除DOM`, fiber);
 })
 
 bindHook(2, 'workLoopSync', () => {
