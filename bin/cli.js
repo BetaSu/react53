@@ -53,7 +53,6 @@ inquirer.prompt([
     spinner.succeed('安装妥了，执行命令开始学习吧：');
     console.log(`  cd ${dir}`);
     console.log(`  npm start`);
-  
   } catch(e) {
     spinner.fail('初始化项目失败');
     console.log(chalk.red(e));
