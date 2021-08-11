@@ -13,7 +13,7 @@ function parseLessionList() {
 function checkLessionArg(num) {
   const lessionList = parseLessionList();
   if (!num) {
-    console.log(chalk.red('请传入课程序号，如：npm test 2 代表运行作业2的测试用例'), `所有课程序号包括：`, chalk.green(lessionList));
+    console.log(chalk.red('请输入课程序号，如：npm test 2 代表运行作业2的测试用例'), `所有课程序号包括：`, chalk.green(lessionList));
     return false;
   }
   

@@ -17007,7 +17007,7 @@ function reconcileChildren(current, workInProgress, nextChildren, renderLanes) {
     // let's throw it out.
     workInProgress.child = reconcileChildFibers(workInProgress, current.child, nextChildren, renderLanes);
   }
-  window.homeworkHook('reconcileChildren', workInProgress.child)
+  window.homeworkHook('reconcileChildren', workInProgress)
 }
 
 function forceUnmountCurrentAndReconcile(current, workInProgress, nextChildren, renderLanes) {
@@ -19477,6 +19477,7 @@ function completeWork(current, workInProgress, renderLanes) {
           } else {
             var instance = createInstance(type, newProps, rootContainerInstance, currentHostContext, workInProgress);
             appendAllChildren(instance, workInProgress, false, false);
+            window.homeworkHook('appendAllChildren', workInProgress, instance);
             workInProgress.stateNode = instance; // Certain renderers require commit-time effects for initial mount.
             // (eg DOM renderer supports auto-focus for certain elements).
             // Make sure such renderers get scheduled for later work.

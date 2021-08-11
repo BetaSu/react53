@@ -6,13 +6,6 @@ import {TChoice} from '../../helper/types';
 */
 
 export const choiceList = [
-  // 这是个选择题使用例子
-  () => {
-    // 问题：卡颂的公众号是？
-    // 1. 魔术师卡颂
-    // 2. 魔法师卡颂
-    return 1; /** return你的答案 */
-  },
   () => {
     // 问题：render阶段的遍历顺序是？ 
     // 1. 广度优先遍历

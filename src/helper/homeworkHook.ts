@@ -43,16 +43,21 @@ bindHook(1, 'commitDeletion', (fiber) => {
 bindHook(2, 'workLoopSync', () => {
   log('#727205', '开始深度优先遍历（render阶段开始）');
 })
+bindHook(2, 'commitRoot', () => {
+  log('#04048a', 'commit阶段，执行副作用...');
+})
 // bindHook(2, 'beginWork', (_, wip) => {
 //   log('green', '递的组件', getType2Use(wip));
 // })
 // bindHook(2, 'completeWork', (_, wip) => {
 //   log('red', '归的组件', getType2Use(wip));
 // })
-bindHook(2, 'reconcileChildren', (child) => {
-  console.log(child);
-  child && log('green', '生成fiber节点：', child);
+bindHook(2, 'reconcileChildren', (wip) => {
+  log('green', `创建${getType2Use(wip)}对应fiberNode：`, wip);
 })
+// bindHook(2, 'appendAllChildren', (wip, ins) => {
+//   log('purple', '生成DOM节点', ins);
+// })
 
 bindHook(3, 'workLoopSync', () => {
   log('#727205', '开始深度优先遍历');
