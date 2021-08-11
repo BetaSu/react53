@@ -50,7 +50,10 @@ inquirer.prompt([
     await execDefer(`git clone https://github.com/BetaSu/react53.git ${dir}`);
     spinner.text = '正在安装依赖';
     await execDefer(`cd ${dir} && npm install ${mirror ? `--registry=${mirror}` : ''}`);
-    spinner.succeed('安装妥了，开始愉快的学习吧！');
+    spinner.succeed('安装妥了，执行命令开始学习吧：');
+    console.log(`  cd ${dir}`);
+    console.log(`  npm start`);
+  
   } catch(e) {
     spinner.fail('初始化项目失败');
     console.log(chalk.red(e));
