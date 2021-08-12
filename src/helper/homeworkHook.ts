@@ -47,10 +47,10 @@ bindHook(2, 'commitRoot', () => {
   log('#04048a', 'commit阶段，执行副作用...');
 })
 // bindHook(2, 'beginWork', (_, wip) => {
-//   log('green', '递的组件', getType2Use(wip));
+//   log('green', `递 ${getType2Use(wip)}`);
 // })
 // bindHook(2, 'completeWork', (_, wip) => {
-//   log('red', '归的组件', getType2Use(wip));
+//   log('red', `归 ${getType2Use(wip)}`);
 // })
 bindHook(2, 'reconcileChildren', (wip) => {
   log('green', `创建${getType2Use(wip)}对应fiberNode：`, wip);
