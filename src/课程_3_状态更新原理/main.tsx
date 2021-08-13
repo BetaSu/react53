@@ -7,7 +7,7 @@ import renderTip from '../helper/renderTip';
 renderTip({
   lession: 3, 
   title: 'React53',
-  mainUrl: 'https://www.baidu.com'
+  mainUrl: 'https://react53.iamkasong.com/chart3.html'
 });
 
 ReactDOM.render(

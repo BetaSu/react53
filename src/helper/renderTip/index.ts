@@ -20,10 +20,11 @@ export default ({title, lession, mainUrl}: TTipData): void => {
       <label class="nav-unshown" id="nav-close" for="nav-input"></label>
       <div id="nav-content">
         <ol>
-          <li><p>课程学习：请打开调试面板配合<a href="${mainUrl}" target="_blank">本节课程教材</a>调试示例</p></li>
-          <li><p>课后作业：课程学习完记得打开课程_${lession}目录下的homework目录做课后作业哦~</p></li>
+          <li><p>获取教材：<a class="highlight" href="${mainUrl}" target="_blank">本节课教材地址</a></li>
+          <li><p>课程学习：打开<span class="highlight">控制台</span>配合教材学习</li>
+          <li><p>课后作业：课程学习完打开<span class="highlight">课程_${lession}目录/homework/index.ts</span>完成课后作业</p></li>
           <li>
-            <p>与同学讨论：我是卡颂，关注公众号，后台回复“53”，我会拉你进React53学习群</p>
+            <p>同学讨论：扫码关注公众号<span class="highlight">魔术师卡颂</span>，后台回复“53”，我会拉你进<span class="highlight">React53学习群</span></p>
             <div class="qrcode-magician"></div>
           </li>
         </ol>

@@ -98,6 +98,10 @@
   padding-right: 20px;
 }
 
+.highlight {
+  color: #ea4335;
+}
+
 .qrcode-magician {
   width: 160px;
   height: 160px;
