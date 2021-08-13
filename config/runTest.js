@@ -1,6 +1,7 @@
 const chalk = require('chalk');
 const path = require('path');
 const fs = require('fs');
+const {spawn} = require('child_process');
 const constant = require('./constant');
 
 function parseLessionList() {
@@ -26,7 +27,4 @@ function checkLessionArg(num) {
 
 const lessionNum = +process.argv.slice(2)[0];
 const isValidNum = checkLessionArg(lessionNum);
-if (isValidNum) {
-  const jestCliPath = path.resolve(__dirname, '../node_modules/jest-cli/bin/jest.js');
-  require(jestCliPath);
-}
+isValidNum && spawn(`jest`, [`${constant.LESSION_PREFFIX}_${lessionNum}`], {stdio: "inherit", shell: true});

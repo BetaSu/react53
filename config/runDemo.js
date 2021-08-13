@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const {spawn} = require('child_process');
 const util = require('util');
 const rimraf = util.promisify(require('rimraf'));
 const inquirer = require('inquirer');
@@ -35,6 +36,5 @@ inquirer.prompt([
 ]).then(async ({lession}) => {
   process.env[constant.LESSION_ENV] = lession;
   await hackReactDOM();
-  const vite = path.resolve(__dirname, '../node_modules/vite/bin/vite.js');
-  require(vite);
+  spawn('vite', [], {stdio: 'inherit', shell: true});
 })

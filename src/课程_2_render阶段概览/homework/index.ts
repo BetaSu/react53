@@ -63,7 +63,7 @@ export const choiceList = [
  * 编写完成后执行 npm test 2 跑用例
  */
 export const reconciler = (jsx: React.ReactElement): string[] => {
-  // 请作答
+  // 请开始你的表演
   return [];
 }
 

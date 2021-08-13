@@ -35,3 +35,18 @@ export const exist = (data: any) => data !== undefined && data !== null;
 export const getReadableAnswer = (count: number, answer: number) => {
   return `第${count + 1}题，答案：${answer}`;
 }
+
+export const createCounter = (initialCount = 0) => {
+  let count = initialCount;
+  return {
+    add() {
+      count++;
+    },
+    reset() {
+      count = initialCount;
+    },
+    get() {
+      return count;
+    }
+  }
+}
