@@ -18,6 +18,15 @@ function execDefer(command) {
   });
 }
 
+async function checkNodeVersion() {
+  const versionTag = await execDefer(`node -v`);
+  const [version] = versionTag.match(/\d+/) || [];
+  const safeVersion = 14;
+  if (version < safeVersion) {
+    console.log(chalk.yellow(`当前node版本为v${version}，低于v${safeVersion}，可能会安装失败，建议升级到最新版本`));
+  }
+}
+
 console.log(chalk.yellow(`欢迎使用${name} —— ${description}`));
 inquirer.prompt([
   {
@@ -43,18 +52,24 @@ inquirer.prompt([
     ]
   },
 ]).then(async ({dir, mirror}) => {
+  await checkNodeVersion();
   const spinner = ora('正在初始化项目');
   spinner.start();
-
+  let processStep = 0;
   try {
     await execDefer(`git clone https://github.com/BetaSu/react53.git ${dir}`);
+    processStep++;
     spinner.text = '正在安装依赖';
     await execDefer(`cd ${dir} && npm install ${mirror ? `--registry=${mirror}` : ''}`);
+    processStep++;
     spinner.succeed('安装妥了，执行命令开始学习吧：');
     console.log(`  cd ${dir}`);
     console.log(`  npm start`);
   } catch(e) {
-    spinner.fail('初始化项目失败');
+    spinner.fail(`初始化项目失败，${[
+      '执行git clone报错',
+      `执行npm install报错，可以试试进入${dir}目录手动安装依赖，${mirror ? '或者不使用镜像重新试试' : ''}`
+    ][processStep]}`);
     console.log(chalk.red(e));
   }
 })
