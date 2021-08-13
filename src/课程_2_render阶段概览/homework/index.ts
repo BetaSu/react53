@@ -59,7 +59,7 @@ export const choiceList = [
       </ul>
     </div>
 返回： ['div', 'span', 'ul', 'li', 'li']
- * @param {JSX} Cpn
+注：你可以在这个链接看到JSX编译执行后的数据结构：https://codesandbox.io/s/jsx-playground-forked-tzpqj
  * 编写完成后执行 npm test 2 跑用例
  */
 export const reconciler = (jsx: React.ReactElement): string[] => {
